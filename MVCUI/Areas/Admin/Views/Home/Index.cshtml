@@ -1,0 +1,228 @@
+﻿@model Tuple<List<Masa>, List<Adisyon>, List<Urun>, User>
+@{
+    ViewBag.Title = "Index";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- /.modal-dialog -->
+
+@foreach (var item in Model.Item1)
+{
+    <div>
+        <section>
+            <details class="card" id="@item.ID">
+                <summary class="property lightblue">
+                    <span class="eyebrow">Cafe</span>
+                    @item.Not
+
+                </summary>
+                <p class="rent">Siparişler</p>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        @foreach (var item2 in Model.Item2.Where(x => x.MasaId == item.ID))
+                        {
+
+
+
+                            <tbody>
+                                @foreach (var deneme in Model.Item3.Where(x => x.ID == item2.UrunId))
+                                {
+                                    <tr>
+                                        <td>@deneme.Ad:</td>
+                                        <td>@deneme.Fiyat - TL</td>
+                                        <td><a href="">1 Adet</a></td>
+
+
+
+                                    </tr>
+
+
+                                    var adisyon = item2.ID;
+
+
+                                    @*<button type="submit" onclick="location.href='@Url.Action("modal","Home",new {id=item2.ID})'" class="btn btn-primary" data-toggle="modal" data-target="/Home/Siparis/@item2.ID">
+                                            Hesabı Kapat
+                                        </button>*@
+                                }
+
+                            </tbody>
+
+
+                        }
+
+
+                    </table>
+
+                    <button type="submit" onclick="location.href='@Url.Action("Index","UrunSiparis",new {id=item.ID })'" class="btn btn-info">Ürün Ekle</button>
+                    <button type="submit" onclick="location.href='@Url.Action("Siparis","UrunSiparis",new {id=item.ID})'" class="btn btn-info">Sipariş Düzenle</button>
+
+
+                </div>
+            </details>
+
+
+        </section>
+
+    </div>
+
+}
+
+<style>
+
+
+
+
+    body {
+        background: #eceff1;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Balthazar', serif;
+        letter-spacing: 2px;
+    }
+
+    p {
+        margin: 2px 0;
+    }
+
+    .table {
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+    }
+
+    .card {
+        width: 340px;
+        max-height: 460px;
+        border: 1px solid #222;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 300;
+        margin: 10px;
+        box-shadow: 0 0 8px rgba(43,47,62,.1);
+        transition: 1s all ease;
+    }
+
+    .property {
+        border: 2px solid #222;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 5px;
+        font-size: 28px;
+        letter-spacing: 1px;
+        font-family: 'Balthazar', serif;
+        font-weight: 400;
+        cursor: pointer;
+        outline: none;
+        transition: 1s all ease;
+    }
+
+    .yellow {
+        background: #f8f218;
+    }
+
+    .lightblue {
+        background: #00BA8B;
+    }
+
+    .darkblue {
+        background: #317cd5;
+    }
+
+    .eyebrow {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 4px;
+        margin-bottom: 5px;
+    }
+
+    ::-webkit-details-marker {
+        display: none;
+    }
+
+    .rent {
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+    .priceTable {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+        .priceTable .qty,
+        .priceTable .price {
+            width: 50%;
+        }
+
+        .priceTable .qty {
+            text-transform: capitalize;
+            text-align: left;
+        }
+
+        .priceTable .price {
+            text-align: right;
+        }
+
+    .hotel {
+        margin-top: 5px;
+    }
+
+    .disclaimer {
+        font-size: 10px;
+        margin: 10px 0;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@TempData["login"]' == "Hoşgeldin"){
+            toastr.success('Hoşgeldin:@Model.Item4.Adi');
+
+       }
+        else{ }
+    });
+
+     $(document).ready(function () {
+         if ('@TempData["Urunİptal"]' == "Urunİptal") {
+             toastr.info('Hesaptan ürün çıkarılmıştır.');
+
+       }
+        else{ }
+    });
+
+    $(document).ready(function () {
+         if ('@TempData["odendi"]' == "odendi") {
+             toastr.info('Hesap Kapatıldı');
+
+       }
+        else{ }
+    });
+
+    $(document).ready(function () {
+
+        $('.btn-block').click(function () {
+
+            var url = $('#myModal').data('url');
+            $.get(url, function (data) {
+
+                $("#myModal").html(data);
+                $("#myModal").modal('show');
+
+            });
+
+        });
+
+    });
+</script>
+

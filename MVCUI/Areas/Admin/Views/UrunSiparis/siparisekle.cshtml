@@ -1,0 +1,46 @@
+﻿@model Tuple<List<Urun>,Adisyon>
+@{
+    ViewBag.Title = "siparisekle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Ürün Fiyatı</th>
+                <th scope="col">Stok Miktarı</th>
+                <th scope="col">Ürün Resmi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Item1)
+            {
+
+                <tr>
+                    <th scope="row">@item.Ad</th>
+                    <td>@item.Fiyat TL</td>
+                    <td>@item.StokMiktari</td>
+                    
+                   
+                    <td><button type="submit" onclick="location.href='@Url.Action("YeniUrun","UrunSiparis",new {id=item.ID})'" class="btn btn-info">Sipariş Ekle</button></td>
+
+
+
+                </tr>
+
+
+
+            }
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+</div>

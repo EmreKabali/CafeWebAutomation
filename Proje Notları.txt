@@ -1,0 +1,6 @@
+﻿
+-TODO-
+
+- Kullanıcı login işlemleri düzenlenecek
+- Design işlemleri yapılacak
+- Stok düştüğünde tetiklenecek e-mail eventi oluşturulacak (Urun)

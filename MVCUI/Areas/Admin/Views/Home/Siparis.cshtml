@@ -1,0 +1,75 @@
+﻿@model Tuple<List<Adisyon>, List<Urun>>
+@{
+    ViewBag.Title = "Siparis";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+@foreach (var item in Model.Item1)
+{
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Ürün Sipariş Miktarı</th>
+                <th scope="col">Ürün Fiyatı</th>
+
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+
+            @foreach (var item2 in Model.Item2.Where(x => x.ID == item.UrunId))
+            {
+                <tr>
+
+
+                    <td>@item2.Ad</td>
+                    <td>1</td>
+                    <td>@item2.Fiyat</td>
+                    <td><a href="@Url.Action("a","aa",new { id=item.ID})">Güncelle</a></td>
+                    <td><a href="@Url.Action("a","aa",new { id=item.ID})">Sil</a></td>
+
+
+
+                </tr>
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+    <div class="shortcuts"> <a href="@Url.Action("siparisekle", "UrunSiparis",new { id=item.ID})" class="shortcut"><i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Yeni ürün ekle</span> </a> </div>
+}
+
+
+
+
+

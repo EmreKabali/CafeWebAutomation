@@ -1,0 +1,44 @@
+﻿@model Urun
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-6">
+
+
+    <div class="panel">
+        <div class="panel-body">
+            <form method="post">
+                @Html.HiddenFor(x => x.ID)
+                <label>Urun Adı</label>
+                @Html.EditorFor(x => x.Ad, new { @class = "form-control" })
+                <label>Acıklama</label>
+                @Html.EditorFor(x => x.Acıklama, new { @class = "form-control" })
+                <label>Fiyat</label>
+                @Html.EditorFor(x => x.Fiyat, new { @class = "form-control" })
+                <label>StokMiktari</label>
+                @Html.EditorFor(x => x.StokMiktari, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.KategoriId)
+                @Html.HiddenFor(x=>x.Resimyolu)
+
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+            </form>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+

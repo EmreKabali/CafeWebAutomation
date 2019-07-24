@@ -1,0 +1,54 @@
+﻿@model Tuple<List<Adisyon>, List<Urun>, Masa>
+@{
+    ViewBag.Title = "Siparis";
+    Layout = "~/Areas/Garson/Views/Shared/_Layout.cshtml";
+}
+@{
+    double y = 0;
+}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Ürün Adı</td>
+                <td>Ürün Fiyatı</td>
+            </tr>
+        </thead>
+        @{foreach (var item in Model.Item1.Where(x => x.MasaId == Model.Item3.ID))
+            {
+                <tbody>
+                    @foreach (var deneme in Model.Item2.Where(x => x.ID == item.UrunId))
+                    {
+                        <tr>
+                            <td>@deneme.Ad</td>
+                            <td>@deneme.Fiyat</td>
+                            <td><img src="@deneme.Resimyolu" alt="@deneme.Ad" width="70" height="80" /></td>
+                            <td><a href="@Url.Action("uruncikar","UrunSiparis",new { id=item.ID})">İptal Et</a></td>
+                            @{
+                                y += deneme.Fiyat;
+                            }
+
+                        </tr>
+
+
+
+
+
+                        @*<button type="submit" onclick="location.href='@Url.Action("modal","Home",new {id=item2.ID})'" class="btn btn-primary" data-toggle="modal" data-target="/Home/Siparis/@item2.ID">
+                                Hesabı Kapat
+                            </button>*@
+                    }
+                </tbody>
+            }
+
+        }
+
+
+
+    </table>
+</div>
+@*<div>
+    <p>Toplam Tutar: @y</p>
+    <button type="submit" onclick="location.href='@Url.Action("Disable","UrunSiparis",new {id=Model.Item3.ID })'" class="btn btn-info">Hesabı Kapat</button>
+</div>*@
+

@@ -1,0 +1,83 @@
+﻿@model Tuple<List<Adisyon>, List<Urun>, Masa>
+@{
+    ViewBag.Title = "Siparis";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    double y = 0;
+}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Ürün Adı</td>
+                <td>Ürün Fiyatı</td>
+            </tr>
+        </thead>
+        @{foreach (var item in Model.Item1.Where(x => x.MasaId == Model.Item3.ID))
+            {
+                <tbody>
+                    @foreach (var deneme in Model.Item2.Where(x => x.ID == item.UrunId))
+                    {
+                        <tr>
+                            <td>@deneme.Ad</td>
+                            <td>@deneme.Fiyat</td>
+                            <td><img src="@deneme.Resimyolu" alt="@deneme.Ad" width="70" height="80" /></td>
+                            <td><a href="@Url.Action("uruncikar","UrunSiparis",new { id=item.ID,y})">İptal Et</a></td>
+                            @{
+                                y += deneme.Fiyat;
+                            }
+
+                        </tr>
+
+
+
+
+
+                        @*<button type="submit" onclick="location.href='@Url.Action("modal","Home",new {id=item2.ID})'" class="btn btn-primary" data-toggle="modal" data-target="/Home/Siparis/@item2.ID">
+                                Hesabı Kapat
+                            </button>*@
+                    }
+                </tbody>
+            }
+
+        }
+
+
+
+    </table>
+</div>
+<div>
+    <div class="alert alert-info">
+       
+         Toplam Tutar: <strong>@y  TL</strong> 
+    </div>
+   
+
+    @*<button type="submit" onclick="location.href='@Url.Action("Disable","UrunSiparis",new {id=Model.Item3.ID,y })'" class="btn btn-info" id="btnClick">Hesabı Kapat</button>*@
+</div>
+
+@using (Html.BeginForm("Disable", "UrunSiparis", FormMethod.Post))
+{
+
+    <div class="form-group">
+      @Html.Hidden("toplamfiyat",y)
+    </div>
+
+
+    <div>
+        @Html.DropDownList("OdemeSekli", EnumHelper.GetSelectList(typeof(Core.Entity.Enums.OdemeSekli)), "OdemeSekli")
+    </div>
+    @Html.Hidden("ID", Model.Item3.ID)
+
+    <button type="submit" class="btn btn-info">Hesabı Kapat</button>
+
+
+
+}
+
+
+
+
+
+

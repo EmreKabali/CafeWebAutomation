@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Yeni Kullanıcı Ekle
+        </header>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Add", "Kullanici", FormMethod.Post))
+            {
+
+                <div class="form-group">
+                    <label for="name">Kullanıcı Adı</label>
+                    <input type="text" class="form-control" placeholder="Adi" name="Adi">
+                </div>
+                <div class="form-group">
+                    <label for="name">Kullanıcı Soyadı</label>
+                    <input type="text" class="form-control" placeholder="Soyadi" name="Soyadi">
+                </div>
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input type="text" class="form-control" placeholder="Email" name="Email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Hesap Adı</label>
+                    <input type="text" class="form-control" placeholder="KullaniciAdi" name="KullaniciAdi">
+                </div>
+                <div class="form-group">
+                    <label for="name">Sifre</label>
+                    <input type="text" class="form-control" placeholder="Sifre" name="Sifre">
+                </div>
+               
+                <div>
+                    @Html.DropDownList("KullaniciRolu",EnumHelper.GetSelectList(typeof(Core.Entity.Enums.Roles)),"KullaniciRolu")
+                </div>
+
+
+                <button type="submit" class="btn btn-info">Ekle</button>
+
+
+
+            }
+
+
+
+
+        </div>
+    </section>
+</div>
+
+

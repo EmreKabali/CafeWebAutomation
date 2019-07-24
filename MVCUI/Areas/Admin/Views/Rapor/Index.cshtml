@@ -1,0 +1,71 @@
+﻿@model List<Fis>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    double x = 0;
+    double y = 0;
+}
+
+@{
+
+
+
+
+    foreach (var item in Model.Where(a => a.CreatedDate.Day == DateTime.Today.Day))
+    {
+        x += item.toplamfiyat;
+
+       
+
+
+    }
+
+    foreach (var item2 in Model)
+    {
+        y += item2.toplamfiyat;
+
+        
+    }
+
+
+    <div class="plan-header">
+
+        <div class="plan-title">
+            TOPLAM CİRO
+        </div> <!-- /plan-title -->
+
+        <div class="plan-price">
+            @y<span class="term">Türk Lirası</span>
+        </div> <!-- /plan-price -->
+
+    </div>
+    <div class="plan green">
+        <div class="plan-header">
+
+            <div class="plan-title">
+                GÜNLÜK CİRO
+            </div> <!-- /plan-title -->
+
+            <div class="plan-price">
+                @x<span class="term">Türk Lirası</span>
+            </div> <!-- /plan-price -->
+
+        </div>
+    </div>
+    
+
+
+
+
+
+}
+
+
+
+
+
+

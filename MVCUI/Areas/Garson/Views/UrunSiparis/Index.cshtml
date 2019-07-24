@@ -1,0 +1,58 @@
+﻿@model Tuple<List<Urun>, Masa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Garson/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Ürün Fiyatı</th>
+                <th scope="col">Stok Miktarı</th>
+                <th scope="col">Ürün Resmi</th>
+            </tr>
+        </thead>
+       
+            <tbody>
+                @foreach (var item in Model.Item1)
+                {
+
+                    <tr>
+                        <td>@item.Ad</td>
+                        <td>@item.Fiyat TL</td>
+                        <td>@item.StokMiktari</td>
+                        <td><img src="@item.Resimyolu" alt="@item.Ad" width="70" height="80" /></td>
+                        <td>
+                            <button class="plus-btn" onclick="start()" type="button" value="+" name="button">
+                                +
+                            </button>
+                            <input type="text" id="count" name="name" value="1">
+                            <button class="minus-btn" type="button" value="-" name="button">
+                                -
+                            </button>
+                        </td>
+                        <td><button type="submit" onclick="location.href='@Url.Action("addProduct","UrunSiparis",new {id=item.ID,Model.Item2.AdisyonId})'" class="btn btn-info">Sipariş Ekle</button></td>
+
+
+
+                    </tr>
+
+
+
+                }
+
+
+            </tbody>
+
+        
+
+    </table>
+
+
+</div>
+<script src="~/Scripts/button count.js"></script>
+
+
+

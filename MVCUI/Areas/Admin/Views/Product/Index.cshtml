@@ -1,0 +1,70 @@
+﻿@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="shortcuts"> <a href="@Url.Action("Add", "Product")" class="shortcut"><i class="shortcut-icon icon-plus"></i><span class="shortcut-label">Ürün Ekle</span> </a> </div>
+<link href="~/Content/toastr.css" rel="stylesheet" />
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Ürün Fiyatı</th>
+                <th scope="col">Ürün Stok Miktarı</th>
+                <th scope="col">Görsel</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.Ad</td>
+                    <td>@item.Fiyat</td>
+                    <td>@item.StokMiktari</td>
+                    <td><img src="@item.Resimyolu" alt="@item.Ad" width="70" height="80" /></td>
+                    <td><a href="@Url.Action("Guncelle","Product",new { id=item.ID})">Güncelle</a></td>
+                    <td><a href="@Url.Action("Delete","Product",new { id=item.ID})">Sil</a></td>
+                    <td><a href="@Url.Action("StokArttir","Product",new { id=item.ID})">Stok Arttır</a></td>
+
+                </tr>
+
+
+            </tbody>
+        }
+    </table>
+
+</div>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if('@TempData["message"]' == "Added"){
+            toastr.success('Ürün Eklendi');
+
+       }
+        else{ }
+    })
+
+    $(document).ready(function () {
+        if('@TempData["deleted"]' == "deleted"){
+            toastr.success('Ürün Silindi');
+
+       }
+        else{ }
+    })
+
+    $(document).ready(function () {
+        if ('@TempData["stock"]' == "stock"){
+            toastr.success('Ürün stok arttırma işlemi başarıyla gerçekleştirildi.');
+
+       }
+        else{ }
+    })
+</script>

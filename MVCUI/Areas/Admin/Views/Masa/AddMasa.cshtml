@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "AddMasa";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            YENİ MASA EKLE
+        </header>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("AddMasa", "Masa", FormMethod.Post))
+            {
+
+                <div class="form-group">
+                    <label for="name">MASA NOTU</label>
+                    <input type="text" class="form-control" placeholder="Not" name="Not">
+                </div>
+
+
+                <button type="submit" class="btn btn-info">Ekle</button>
+
+
+
+            }
+
+
+
+
+        </div>
+    </section>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if ('@TempData["hata"]' == "Eklediğiniz isimde masa bulunmaktadır.Farklı bir isim ile yeniden deneyiniz.") {
+            toastr.error('Eklediğiniz isimde masa bulunmaktadır.Farklı bir isim ile yeniden deneyiniz.');
+       }
+        else{ }
+    })
+</script>

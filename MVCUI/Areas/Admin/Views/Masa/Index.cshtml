@@ -1,0 +1,59 @@
+﻿@model List<Masa>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="shortcuts"> <a href="@Url.Action("AddMasa", "Masa")" class="shortcut"><i class="shortcut-icon icon-plus"></i><span class="shortcut-label">Masa Ekle</span> </a> </div>
+<div class="editor-label">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Masa Adı</th>
+                <th scope="col">Oluşturulma Tarihi</th>
+
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                   
+                    <th scope="row">@item.Not</th>
+                    <td>@item.CreatedDate</td>
+
+
+
+                    <td><a href="@Url.Action("deletedMasa","Masa",new { id=item.ID})">Sil</a></td>
+
+                </tr>
+
+
+            </tbody>
+        }
+    </table>
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if ('@TempData["delete"]' == "delete"){
+            toastr.success('Masa silindi');
+
+       }
+        else{ }
+    })
+
+    $(document).ready(function () {
+        if ('@TempData["added"]' == "added"){
+            toastr.success('Masa ekleme başarı ile gerçekleşti');
+
+       }
+        else{ }
+    })
+</script>

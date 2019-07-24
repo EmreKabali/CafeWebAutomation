@@ -1,0 +1,43 @@
+﻿@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Yeni Kategori Ekle
+        </header>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Index2", "Kategori", FormMethod.Post))
+            {
+
+                <div class="form-group">
+                    <label for="name">KategoriAdı</label>
+                    <input type="text" class="form-control" placeholder="KategoriAdı" name="KategoriAdı">
+                </div>
+                <div class="form-group">
+                    <label for="name">KategoriAçıklaması</label>
+                    <input type="text" class="form-control" placeholder="KategoriAçıklaması" name="KategoriAçıklaması">
+                </div>
+
+
+                <button type="submit" class="btn btn-info">Ekle</button>
+
+
+
+            }
+
+
+
+
+        </div>
+    </section>
+</div>
+
+
+
+
+

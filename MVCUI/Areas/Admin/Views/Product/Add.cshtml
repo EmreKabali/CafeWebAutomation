@@ -1,0 +1,69 @@
+﻿@model List<Kategori>
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Yeni Ürün EKLEME
+        </header>
+        <div class="panel-body">
+
+            <form role="form" class="form-horizontal" method="post" action="/Admin/Product/Add" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="name">Urun Adı</label>
+                    <input type="text" class="form-control" placeholder="Ad" name="Ad">
+
+                </div>
+                <div class="form-group">
+                    <label for="name">Acıklama</label>
+                    <input type="text" class="form-control" placeholder="Acıklama" name="Acıklama">
+                </div>
+                <div class="form-group">
+                    <label for="name">Fiyat</label>
+                    <input type="text" class="form-control" placeholder="Fiyat" name="Fiyat">
+                </div>
+                <div class="form-group">
+                    <label for="name">StokMiktari</label>
+                    <input type="text" class="form-control" placeholder="StokMiktari" name="StokMiktari">
+                </div>
+                <div>
+                    <label for="name">Kategori</label>
+                    <select name="KategoriId">
+                        @foreach (var item in Model)
+                        {
+
+
+                            <option value="@item.ID">@item.KategoriAdı</option>
+
+
+
+                        }
+                    </select>
+                </div>
+                <br />
+                <div class="form-group" name="Resimyolu">
+                    <label for="Image">Görsel</label>
+                    <input type="file" name="image" />
+                </div>
+
+
+
+                <button type="submit" class="btn btn-info">Ekle</button>
+
+
+
+             </form>
+
+
+
+
+        </div>
+    </section>
+</div>
+
+<script src="~/Scripts/toastr.js"></script>
+<link href="~/Content/toastr.css" rel="stylesheet" />
