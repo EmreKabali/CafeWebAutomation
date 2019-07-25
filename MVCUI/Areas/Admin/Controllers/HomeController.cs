@@ -23,7 +23,7 @@ namespace MVCUI.Areas.Admin.Controllers
             logger.Info("MasaService Started: Adisyon get Status Active: Urun get Isdeleted Active");
            
 
-            return View(Tuple.Create(ms.GetirListe(),ads.GetDefault(x=>x.Statu==Core.Entity.Enums.Status.Active),us.GetirListe(),kullanici));//Adisyon döneceğimiz zaman statusu active olacak,hesabı kapatılan adisyonun statüsü deletede çekilecek-ÖRNEK DENEME
+            return View(Tuple.Create(ms.GetirListe(),ads.GetDefault(x=>x.Statu==Core.Entity.Enums.Status.Active),us.GetirListe(),kullanici));//Adisyon döneceğimiz zaman statusu active olacak,hesabı kapatılan adisyonun statüsü deletede çekilecek
         }
 
         //Siparişlerin listelendiği nokta

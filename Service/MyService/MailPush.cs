@@ -30,8 +30,8 @@ namespace Service.MyService
             SmtpClient smp = new SmtpClient();
 
             //mailin gönderileceği adres ve şifresi
-            smp.Credentials = new NetworkCredential("kabalicafe@gmail.com", "Kafe123321");
-            //kabalicafe@gmail.com-Kabali123321
+            smp.Credentials = new NetworkCredential("kabalicafe@gmail.com", "deneme");
+            //kabalicafe@gmail.com-sifreyi proje yöneticisinden talep ediniz
             smp.Port = 587;
             
             smp.Host = "smtp.gmail.com";//gmail üzerinden gönderiliyor.

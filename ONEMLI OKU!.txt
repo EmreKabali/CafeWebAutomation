@@ -1,0 +1,16 @@
+﻿OKUYUNUZ:
+
+
+- Projeyi açmadan once Database klasöründe bulunan database i import işlemi gerçekleştiriniz.
+Not: Projedeki Model-Context-CafeContext sınıfının içinde ki connectionstring ; trusted connection ile ayarlanmıştır.Eğer çalışmazsa,
+Kendi sisteminizde çalışması için "sa" lı konfigürasyon işlemlerini gerçekleştirip sonrasında projeyi çalıştırınız.
+-Video:Sistemin tanıtımı için kısa Admin ve Garson arayüzleriyle örnek işlemler videolarda gösterilmiştir.
+
+- ÖRNEK Kullanıcılar:
+Admin: kabaliemre@hotmail.com  sifre:123321
+Garson:ahmet@hotmail.com  sifre:123321
+
+- Stok sayısı 10 dan düştüğünde mail atmaya başlayacaktır.Fakat şifre doğru olmadıgından hata alır.Şifreyi proje sahibinden talep ediniz.
+NOt: Mail gönderme işlemlerinin yapılması için mail şifresi değişitrilmesi gerekmektedir.Hata verebilir.
+
+- Loglamalar Yereldisk C: Log klasörü altında loglanmaktadır.İnceleyebilirsiniz.

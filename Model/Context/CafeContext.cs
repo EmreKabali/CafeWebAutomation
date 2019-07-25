@@ -18,6 +18,9 @@ namespace Model.Context
         public CafeContext() 
         {
             Database.Connection.ConnectionString = "server=.;database=AustProjectDB;Trusted_Connection=True";
+
+            //Database.Connection.ConnectionString = "server=.;database=AustProjectDB;User ıd=sa;Password=123321";
+           
         }
 
 

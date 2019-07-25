@@ -601,3 +601,4 @@ C:\Users\GLB90062521\Desktop\DENEMELER\Guncel-master\Guncel-master\MVCUI\obj\Deb
 C:\Users\GLB90062521\Desktop\DENEMELER\Guncel-master\Guncel-master\MVCUI\obj\Debug\MVCUI.csproj.CopyComplete
 C:\Users\GLB90062521\Desktop\DENEMELER\Guncel-master\Guncel-master\MVCUI\obj\Debug\MVCUI.dll
 C:\Users\GLB90062521\Desktop\DENEMELER\Guncel-master\Guncel-master\MVCUI\obj\Debug\MVCUI.pdb
+C:\Users\GLB90062521\Desktop\DENEMELER\Guncel-master\Guncel-master\MVCUI\bin\Rotativa.dll

@@ -81,29 +81,7 @@ namespace MVCUI.Controllers
 
             
 
-            //var user = db.User.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
-            //if (user == null)
-            //{
-            //    TempData["error"] = "Böyle bir kullanıcı bulunamadı";
-            //    return RedirectToAction("Index", "Error");
-
-            //}
-            //else
-            //{
-            //    Session["login"] = user;
-            //    return RedirectToAction("Product", "Home");
-            //}
-
-            //return View();
-            //if (ModelState.IsValid) //Geçici Olarak düzeltildi !!
-            //{
-            //    LoginVM kullanici = _user;
-            //    if (kullanici.Email=="kabaliemre@hotmail.com")
-            //    {
-            //        TempData["login"] = "Hoşgeldin";
-            //        return RedirectToAction("Index", "Admin/Home");
-            //    }
-
+            
               
                
 
@@ -111,7 +89,7 @@ namespace MVCUI.Controllers
 
                
 
-            //}
+           
             return View();
 
         }

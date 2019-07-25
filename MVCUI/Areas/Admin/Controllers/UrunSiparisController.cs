@@ -23,7 +23,7 @@ namespace MVCUI.Areas.Admin.Controllers
         public ActionResult Index(Masa _id)
         {
 
-            //BURDA KALDIK
+            
             Adisyon ads = new Adisyon();
             ads.MasaId = _id.ID;
             ads.siparis = rnd.Next();
@@ -106,7 +106,7 @@ namespace MVCUI.Areas.Admin.Controllers
             Fis kapat = new Fis();
             kapat.OdemeSekli = _masa.OdemeSekli;
             kapat.toplamfiyat = _masa.toplamfiyat;
-            //Masa ID ve siparis number eklenecek
+            
             fss.Add(kapat);
             fss.Save();
 
@@ -130,6 +130,8 @@ namespace MVCUI.Areas.Admin.Controllers
             TempData["Urunİptal"] = "Urunİptal";
             return RedirectToAction("Index","Home");
         }
+
+      
         
         
 

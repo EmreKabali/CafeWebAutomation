@@ -22,7 +22,7 @@ namespace MVCUI.Areas.Garson.Controllers
         public ActionResult Index(Masa _id)
         {
 
-            //BURDA KALDIK
+            
             Adisyon ads = new Adisyon();
             ads.MasaId = _id.ID;
             ads.siparis = rnd.Next();
